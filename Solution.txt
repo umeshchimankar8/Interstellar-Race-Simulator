@@ -1,0 +1,25 @@
+def space_race_winner(planets, results): nasa_points, esa_points = 0, 0
+
+for result in results:
+    nasa_score = result[0] * result[1]  # NASA: speed * fuel efficiency
+    esa_score = result[2] * result[3]    # ESA: speed * fuel efficiency
+    
+    if nasa_score > esa_score:
+        nasa_points += 1
+    elif esa_score > nasa_score:
+        esa_points += 1
+    
+    if nasa_points == 7:
+        return "NASA"
+    if esa_points == 7:
+        return "ESA"
+
+return "No_Winner"
+
+Sample Input
+
+total_planets = 4 results = [ [100000, 2.5, 90000, 3.0], [120000, 2.0, 100000, 2.2], [80000, 3.5, 95000, 3.0], [110000, 2.8, 105000, 3.1] ]
+
+Run the function
+
+print(space_race_winner(total_planets, results))
